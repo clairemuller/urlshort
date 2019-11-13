@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
+	"gophercises/urlshort"
 	"net/http"
-
-	"github.com/gophercises/urlshort"
 )
 
 func main() {
@@ -31,6 +30,7 @@ func main() {
 	}
 	fmt.Println("Starting the server on :8080")
 	http.ListenAndServe(":8080", yamlHandler)
+
 }
 
 func defaultMux() *http.ServeMux {
@@ -42,3 +42,10 @@ func defaultMux() *http.ServeMux {
 func hello(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello, world!")
 }
+
+// NOTES
+
+// http.ServeMux
+// http.NewServeMux()
+// HandleFunc(pattern string, handler func(ResponseWriter, *Request))
+// HandleFunc registers the handler function for the given pattern.
